@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
 
 main{
-    height: 87vh;
+    min-height: 87vh;
 }
 nav,footer,.mainDiv{
     width: 100%;
@@ -17,4 +17,20 @@ h2{
 }
 table{
     width: 80vw !important;
+}
+.rowForm{
+    width: 80%;
+    height: 3rem;
+}
+.mainIndex .form-check{
+    width: 7rem;
+}
+.rowCards{
+    min-height: 80vh !important;
+}
+.card img{
+    height: 10rem;
+}
+.card{
+    width: 15rem;
 }
