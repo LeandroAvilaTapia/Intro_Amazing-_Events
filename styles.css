@@ -1,48 +1,62 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
+*{
+  box-sizing: border-box;
+}
+main {
+  min-height: 85vh !important;
+}
+nav{
+  min-height: 5vh !important;
+}
+footer{
+  min-height: 10vh;
+}
+nav,
+footer,
+.mainDiv {
+  width: 100%;
+}
 
-main{
-    min-height: 87vh;
+.formContact {
+  max-width: 80vw;
+  border-radius: 1px;
 }
-nav,footer,.mainDiv{
-    width: 100%;
+h2 {
+  font-size: 45px;
+  font-family: "Fira Sans", sans-serif;
 }
-
-.formContact{
-    max-width: 80vw;
-    border-radius: 1px;
+table {
+  width: 80vw !important;
 }
-h2{
-    font-size: 45px;
-    font-family: 'Fira Sans', sans-serif;
+.rowForm {
+  width: 80%;
+  height: 3rem;
 }
-table{
-    width: 80vw !important;
+.mainIndex .form-check {
+  width: 7rem;
 }
-.rowForm{
-    width: 80%;
-    height: 3rem;
+.rowCards {
+  min-height: 80vh !important;
 }
-.mainIndex .form-check{
-    width: 7rem;
+.imgCard {
+  height: 10rem;
 }
-.rowCards{
-    min-height: 80vh !important;
+.card {
+  width: 15rem;
+  box-shadow: 0.3em 0.3em 1em rgba(230, 230, 230, 0.76);
 }
-.imgCard{
-    height: 10rem;
+.btn {
+  background-color: #d90367;
+  color: white;
 }
-.card{
-    width: 15rem;
-    box-shadow:  0.3em 0.3em 1em rgba(230, 230, 230, 0.76);
+.btn:hover {
+  background-color: black;
+  color: white;
 }
-.btn{
-    background-color: #d90367;
-    color: white;
+.imgDetails {
+  box-shadow: 0.3em 0.3em 0.3em #d9036794;
 }
-.btn:hover{
-    background-color: black;
-    color: white;
-}
-.imgDetails{
-    box-shadow:  0.3em 0.3em 0.3em #d9036794;
+caption{
+  background-color: black;
+  color: white;
 }
