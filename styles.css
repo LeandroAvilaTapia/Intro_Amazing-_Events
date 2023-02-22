@@ -33,4 +33,13 @@ table{
 }
 .card{
     width: 15rem;
+    box-shadow:  0.3em 0.3em 1em rgba(230, 230, 230, 0.76);
+}
+.btn{
+    background-color: #d90368;
+    color: white;
+}
+.btn:hover{
+    background-color: black;
+    color: white;
 }
