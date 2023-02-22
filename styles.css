@@ -28,7 +28,7 @@ table{
 .rowCards{
     min-height: 80vh !important;
 }
-.card img{
+.imgCard{
     height: 10rem;
 }
 .card{
@@ -36,10 +36,13 @@ table{
     box-shadow:  0.3em 0.3em 1em rgba(230, 230, 230, 0.76);
 }
 .btn{
-    background-color: #d90368;
+    background-color: #d90367;
     color: white;
 }
 .btn:hover{
     background-color: black;
     color: white;
+}
+.imgDetails{
+    box-shadow:  0.3em 0.3em 0.3em #d9036794;
 }
