@@ -1,19 +1,23 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
 *{
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 main {
-  min-height: 85vh !important;
+  min-height: 88vh !important;
+}
+body{
+  height: 100vh;
 }
 nav{
   min-height: 5vh !important;
 }
 footer{
-  min-height: 10vh;
+  min-height: 7vh;
+  z-index: 1;
 }
-nav,
-footer,
-.mainDiv {
+nav,footer,.mainDiv {
   width: 100%;
 }
 
