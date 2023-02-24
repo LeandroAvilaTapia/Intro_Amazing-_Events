@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans&display=swap");
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,17 +7,19 @@
 main {
   min-height: 88vh !important;
 }
-body{
+body {
   height: 100vh;
 }
-nav{
+nav {
   min-height: 5vh !important;
 }
-footer{
+footer {
   min-height: 7vh;
   z-index: 1;
 }
-nav,footer,.mainDiv {
+nav,
+footer,
+.mainDiv {
   width: 100%;
 }
 
@@ -60,7 +62,7 @@ table {
 .imgDetails {
   box-shadow: 0.3em 0.3em 0.3em #d9036794;
 }
-caption{
+caption {
   background-color: black;
   color: white;
 }
