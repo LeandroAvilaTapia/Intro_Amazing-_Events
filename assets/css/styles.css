@@ -50,10 +50,15 @@ table {
 .card {
   width: 15rem;
   box-shadow: 0.3em 0.3em 1em rgba(230, 230, 230, 0.76);
+  min-height: 25rem;
 }
 .btn {
   background-color: #d90367;
   color: white;
+}
+.boton{
+  width: 6.7rem;
+  padding: 0;
 }
 .btn:hover {
   background-color: black;

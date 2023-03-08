@@ -1,10 +1,11 @@
+import { filtroUpcoming } from "./main.js";
 import { data } from "./data.js";
-import { filtroIndex } from "./main.js";
-let rowsCards = document.getElementById("rowCardsIndex");
-let eventosTotales = filtroIndex(data.events);
-let stringHtmlss = "";
-for (let eventos of eventosTotales) {
-  stringHtmlss += `
+let rowsCards = document.getElementById("rowCards");
+let stringHtml = "";
+let eventosFiltrados = filtroUpcoming(data.currentDate, data.events);
+
+for (let eventos of eventosFiltrados) {
+  stringHtml += `
     
         <div class="card">
           <img src="${eventos.image}" class="card-img-top imgCard" alt="cinema" />
@@ -22,8 +23,6 @@ for (let eventos of eventosTotales) {
           </div>
         </div> 
           `;
-} 
-rowsCards.innerHTML = stringHtmlss;
+};
 
-
-
+rowsCards.innerHTML = stringHtml;
