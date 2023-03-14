@@ -24,3 +24,4 @@ export function filtroIndex(arrayEventos) {
     }
     return eventsPast;
   };
+  
