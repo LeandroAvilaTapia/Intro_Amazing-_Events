@@ -13,7 +13,26 @@ imprimirCheckbox(data.events);
 
 //--------------------------
 
-inputSearch.addEventListener('input',filtro)
+inputSearch.addEventListener('input',function() { //se imprimen todas las cards si se borra la busqueda
+  if (!inputSearch.value) {
+    imprimirCards(data.events);
+  }
+});
+
+inputSearch.addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    filtro()
+  }
+});
+
+let submitButton = document.getElementById("submitButton");
+
+submitButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  filtro();
+});
+
 
 CheckboxIndex.addEventListener('change',filtro)
 
@@ -64,9 +83,9 @@ function imprimirCheckbox(eventos){
   let creadorDeChecks=''
   setEventos.forEach(evento =>{
   creadorDeChecks += `
-  <div class="form-check border border-dark rounded m-1">
-            <input class="form-check-input" type="checkbox" value="${evento}" id="${evento}" />
-            <label class="form-check-label px-1" for="${evento}">
+  <div class="form-check m-1">
+            <input class="form-check-input border border-dark rounded" type="checkbox" value="${evento}" id="${evento}" />
+            <label class="form-check-label border border-dark rounded px-1" for="${evento}">
               ${evento}
             </label>
           </div>
