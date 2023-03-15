@@ -65,7 +65,7 @@ table {
   color: white;
 }
 .imgDetails {
-  box-shadow: 0.3em 0.3em 0.3em #d9036794;
+  min-width: 27rem;
 }
 caption {
   background-color: black;

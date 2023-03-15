@@ -63,7 +63,7 @@ eventos.forEach(evento => {
                    <p class="card-text">price: ${evento.price}</p>
                  </div>
                  <div class="col-12 p-0 d-flex justify-content-center boton">
-                   <a href="./Details.html" class="btn d-flex">Ver más</a>
+                   <a href="./assets/html/Details.html?id=${evento._id}" class="btn d-flex">Ver más</a>
                 </div>
              </div>
            </div>
