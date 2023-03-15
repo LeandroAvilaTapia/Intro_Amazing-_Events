@@ -1,12 +1,9 @@
 import { data } from "./data.js";
-/* Obtenenos los datos de los parametros de la URL */
 const queryString = location.search
-let params = new URLSearchParams(queryString)
-let id = params.get("id")
-/* Buscar dato por id */
-let evento = data.events.find(info => info._id == id)
+let id = new URLSearchParams(queryString).get("id")
 
-/* Renderizar profile */
+let evento = data.events.find(evento => evento._id == id)
+
 const contenedor = document.getElementById("rowCardsDetails");
 let html = "";
 

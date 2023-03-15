@@ -1,4 +1,7 @@
 import { filtroPast } from "./main.js";
+import { filtroCategoria } from "./main.js";
+import { imprimirCheckbox } from "./main.js";
+import { filtroSearch } from "./main.js";
 import { data } from "./data.js";
 let eventosFiltrados = filtroPast(data.currentDate, data.events);
 let rowsCards = document.getElementById("rowCardsPast");
@@ -53,7 +56,7 @@ eventos.forEach(evento => {
   stringHtmlss += `
     
            <div class="card">
-             <img src="${evento.image}" class="card-img-top imgCard" alt="cinema" />
+             <img src="${evento.image}" class="card-img-top imgCard" alt="${evento.name}" />
              <div class="card-body">
                <h5 class="card-title d-flex justify-content-center">${evento.name}</h5>
               <p class="card-text">${evento.description}</p>            
@@ -71,34 +74,4 @@ eventos.forEach(evento => {
 
 })
 rowsCards.innerHTML = stringHtmlss;
-}
-
-function filtroSearch(arrayDeEventos,texto) {
-  return arrayDeEventos.filter(evento => evento.name.toLowerCase().includes(texto.toLowerCase()))
-}
-
-function imprimirCheckbox(eventos){
-  let setEventos = new Set (eventos.map(evento => evento.category))
-  let creadorDeChecks=''
-  setEventos.forEach(evento =>{
-  creadorDeChecks += `
-  <div class="form-check m-1">
-            <input class="form-check-input border border-dark rounded" type="checkbox" value="${evento}" id="${evento}" />
-            <label class="form-check-label border border-dark rounded px-1" for="${evento}">
-              ${evento}
-            </label>
-          </div>
-  `
-  })
-  CheckboxIndex.innerHTML = creadorDeChecks
-}
-
-function filtroCategoria(eventos){
-  let arrayCheckboxes = Array.from(document.querySelectorAll("input[type='checkbox']"))
-  let checksActivados = arrayCheckboxes.filter(check => check.checked)
-  if (checksActivados.length == 0){
-    return eventos
-  }
-  let categorias = checksActivados.map(check => check.value)
-  return eventos.filter(elemento =>categorias.includes(elemento.category))
 }
