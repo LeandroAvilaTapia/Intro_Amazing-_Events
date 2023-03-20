@@ -2,16 +2,20 @@ import { filtroUpcoming } from "./main.js";
 import { filtroCategoria } from "./main.js";
 import { imprimirCheckbox } from "./main.js";
 import { filtroSearch } from "./main.js";
-import { data } from "./data.js";
+let eventosFiltrados
+let Api = "https://mindhub-xj03.onrender.com/api/amazing"
+
+fetch(Api)
+.then ((response)=>response.json())
+.then(data =>{
+  eventosFiltrados = filtroUpcoming(data.currentDate, data.events);
+  imprimirCards(eventosFiltrados);
+  imprimirCheckbox(eventosFiltrados);
+})
+
 let rowsCards = document.getElementById("rowCards");
-let eventosFiltrados = filtroUpcoming(data.currentDate, data.events);
 let inputSearch = document.getElementById("inputSearch");
 let CheckboxIndex = document.getElementById("CheckboxIndex")
-
-//--------------------------
-
-imprimirCards(eventosFiltrados);
-imprimirCheckbox(eventosFiltrados);
 
 //--------------------------
 
