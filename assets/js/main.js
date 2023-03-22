@@ -54,3 +54,66 @@ export function filtroIndex(arrayEventos) {
   export function filtroSearch(arrayDeEventos,texto) {
     return arrayDeEventos.filter(evento => evento.name.toLowerCase().includes(texto.toLowerCase()))
   }
+
+
+  //----------------------------------------STATS-----------------------------------------
+  export function categoriaStats(eventos){
+    let setEventosStats = new Set (eventos.map(evento => evento.category))
+    
+    let trUpcomingCategory = document.getElementById("trUpcomingCategory");
+    let creadorDeColumnas = ``    
+    setEventosStats.forEach(evento=>{
+      //------Ganancias de todos los eventos de una categoría----------------
+      let eventosFiltradosPorCategoria = eventosPorCategorias(eventos,evento)      
+      let ganancia = gananciaTotal(eventosFiltradosPorCategoria)
+      //------Porcentaje de asistencia.----------------
+      let eventosFiltradosPorCategorias = eventosPorCategorias(eventos,evento)      
+      let asistencia = porcentajeDeAsistencia(eventosFiltradosPorCategorias)
+      creadorDeColumnas +=`
+      <tr>
+            <td>${evento}</td>
+            <td>$${ganancia}</td>
+            <td>${asistencia}%</td>
+          </tr>      
+      `
+    })
+    trUpcomingCategory.innerHTML = creadorDeColumnas;
+  }
+
+export  function eventosPorCategorias(eventos,category){
+    //esta funcion me devuelve un array de eventos de una determinada categoria
+   let arrayCategorias = []    
+    arrayCategorias = eventos.filter(evento=> evento.category == category)
+    return arrayCategorias
+  }
+  
+  export function gananciaTotal (arrayeventos){
+    //esta funcion devuelve la ganancia de una categoria
+    //usar metodo reduce
+    let reduce = arrayeventos.reduce((acc,item)=>{
+      return acc +=item.price*item.estimate;
+    },0)
+    return reduce 
+  }
+
+  export function porcentajeDeAsistencia (arrayeventos){
+    //esta funcion devuelve el procentaje de una categoria
+    let porcentajeDeAsistencia = totalDeAsistencia(arrayeventos)/totalDeCapacidad(arrayeventos)*100
+    return porcentajeDeAsistencia.toFixed(2)
+  }
+
+  export function totalDeAsistencia (arrayeventos){
+    //esta funcion devuelve la asistencia total de una categoria
+    //usar metodo reduce
+    return arrayeventos.reduce((accs,itemes)=>{
+      return accs +=itemes.estimate;
+    },0)
+  }
+
+  export function totalDeCapacidad (arrayeventos){
+    //esta funcion devuelve la capacidad total de una categoria
+    //usar metodo reduce
+    return arrayeventos.reduce((accs,itemes)=>{
+      return accs +=itemes.capacity;
+    },0)
+  }
