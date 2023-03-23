@@ -1,10 +1,19 @@
-import { data } from "./data.js";
+//import { data } from "./data.js";
 const queryString = location.search
-let id = new URLSearchParams(queryString).get("id")
+let id = new URLSearchParams(queryString).get("id") 
+let Api = "https://mindhub-xj03.onrender.com/api/amazing"
 
-let evento = data.events.find(evento => evento._id == id)
+fetch(Api)
+.then ((response)=>response.json())
+.then(data =>{
+  let evento = data.events.find(evento => evento._id == id)
+  imprimarCard (evento)
+})
+
+//let evento = data.events.find(evento => evento._id == id)
 
 const contenedor = document.getElementById("rowCardsDetails");
+function imprimarCard (evento){
 let html = "";
 
 html += `
@@ -20,5 +29,5 @@ html += `
 </div>
     `
 contenedor.innerHTML = html
-
+}
 
