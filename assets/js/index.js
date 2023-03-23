@@ -5,14 +5,22 @@ import { imprimirCheckbox } from "./main.js";
 import { filtroSearch } from "./main.js";
 
 
+let Api = "https://mindhub-xj03.onrender.com/api/amazing"
+
+fetch(Api)
+.then ((response)=>response.json())
+.then(data =>{
+  
+imprimirCards(data.events);
+imprimirCheckbox(data.events);
+})
+
 let rowsCards = document.getElementById("rowCardsIndex");
 let inputSearch = document.getElementById("inputSearch");
 let CheckboxIndex = document.getElementById("CheckboxIndex")
 
 //--------------------------
 
-imprimirCards(data.events);
-imprimirCheckbox(data.events);
 
 //--------------------------
 

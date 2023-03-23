@@ -132,6 +132,41 @@ export  function eventosPorCategorias(eventos,category){
     },0)
   }
 
-  function mayorPorcentajeAsistencia(){
+
+ export function arrayPorcentajeAsistencia(arrayeventos){
 //Evento con mayor porcentaje de asistencia: Sacan el porcentaje de todos los eventos pasados, ordenenlos de mayor a menor, impriman el primero.
+//agregar la propiedad de porcentaje al objeto
+let acumulador = 0
+let eventoConMayorAsistencia = arrayeventos.reduce((contador,evento)=>{
+  
+  if(porcentajeDeAsistenciaEvento(evento).toFixed(2) >= acumulador)
+  {
+    acumulador = porcentajeDeAsistenciaEvento(evento).toFixed(2);
+    contador = evento
+    }
+    return contador  
+},0)
+  return eventoConMayorAsistencia
+  }
+
+  export function arrayMenorPorcentajeAsistencia(arrayeventos){
+    //Evento con mayor porcentaje de asistencia: Sacan el porcentaje de todos los eventos pasados, ordenenlos de mayor a menor, impriman el primero.
+    //agregar la propiedad de porcentaje al objeto
+    let acumulador = porcentajeDeAsistenciaEvento(arrayeventos[0])
+    console.log(acumulador);
+    let eventoConMenorAsistencias = arrayeventos.reduce((contador,evento)=>{
+
+    if(acumulador >= porcentajeDeAsistenciaEvento(evento))
+    {
+        acumulador = porcentajeDeAsistenciaEvento(evento);
+        contador = evento
+    }
+    return contador  
+  })
+      return eventoConMenorAsistencias
+      }
+
+
+export  function porcentajeDeAsistenciaEvento(evento){
+    return evento.assistance/evento.capacity*100
   }

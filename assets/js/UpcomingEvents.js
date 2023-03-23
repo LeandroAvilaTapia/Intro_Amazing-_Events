@@ -2,7 +2,7 @@ import { filtroUpcoming } from "./main.js";
 import { filtroCategoria } from "./main.js";
 import { imprimirCheckbox } from "./main.js";
 import { filtroSearch } from "./main.js";
-import { categoriaStats } from "./main.js";
+//import { categoriaStats } from "./main.js";
 let eventosFiltrados
 let Api = "https://mindhub-xj03.onrender.com/api/amazing"
 
