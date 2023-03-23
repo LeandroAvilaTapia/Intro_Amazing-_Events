@@ -1,5 +1,5 @@
-import { data } from "./data.js";
-import { filtroIndex } from "./main.js";
+//import { data } from "./data.js";
+//import { filtroIndex } from "./main.js";
 import { filtroCategoria } from "./main.js";
 import { imprimirCheckbox } from "./main.js";
 import { filtroSearch } from "./main.js";
@@ -13,17 +13,6 @@ fetch(Api)
   
 imprimirCards(data.events);
 imprimirCheckbox(data.events);
-})
-
-let rowsCards = document.getElementById("rowCardsIndex");
-let inputSearch = document.getElementById("inputSearch");
-let CheckboxIndex = document.getElementById("CheckboxIndex")
-
-//--------------------------
-
-
-//--------------------------
-
 inputSearch.addEventListener('input',function() { //se imprimen todas las cards si se borra la busqueda
   if (!inputSearch.value) {
     imprimirCards(data.events);
@@ -36,6 +25,12 @@ inputSearch.addEventListener("keydown", function(event) {
     filtro()
   }
 });
+function filtro() {
+  let filtroDeSearch = filtroSearch(data.events,inputSearch.value)
+  imprimirCards(filtroCategoria(filtroDeSearch))
+}
+
+CheckboxIndex.addEventListener('change',filtro)
 
 let submitButton = document.getElementById("submitButton");
 
@@ -43,16 +38,18 @@ submitButton.addEventListener("click", function(event) {
   event.preventDefault();
   filtro();
 });
+})
+
+let rowsCards = document.getElementById("rowCardsIndex");
+let inputSearch = document.getElementById("inputSearch");
+let CheckboxIndex = document.getElementById("CheckboxIndex")
 
 
-CheckboxIndex.addEventListener('change',filtro)
 
 
-//--------------------------
-function filtro() {
-  let filtroDeSearch = filtroSearch(data.events,inputSearch.value)
-  imprimirCards(filtroCategoria(filtroDeSearch))
-}
+
+
+
 
 function imprimirCards(eventos){
 if (eventos.length == 0){
