@@ -153,7 +153,7 @@ let eventoConMayorAsistencia = arrayeventos.reduce((contador,evento)=>{
     //Evento con mayor porcentaje de asistencia: Sacan el porcentaje de todos los eventos pasados, ordenenlos de mayor a menor, impriman el primero.
     //agregar la propiedad de porcentaje al objeto
     let acumulador = porcentajeDeAsistenciaEvento(arrayeventos[0])
-    console.log(acumulador);
+    
     let eventoConMenorAsistencias = arrayeventos.reduce((contador,evento)=>{
 
     if(acumulador >= porcentajeDeAsistenciaEvento(evento))
@@ -170,3 +170,17 @@ let eventoConMayorAsistencia = arrayeventos.reduce((contador,evento)=>{
 export  function porcentajeDeAsistenciaEvento(evento){
     return evento.assistance/evento.capacity*100
   }
+
+  export function eventoConMayorCapacidad(arrayeventos){
+    let acumulador = 0
+    let eventoConMayorCapacidad = arrayeventos.reduce((contador,evento)=>{  
+  if(evento.capacity >= acumulador)
+  {
+    acumulador = evento.capacity
+    contador = evento
+    }
+    return contador  
+},0)
+  return eventoConMayorCapacidad
+  }
+  

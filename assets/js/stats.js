@@ -9,6 +9,7 @@ import { porcentajeDeAsistenciaPast } from "./main.js";
 import { arrayPorcentajeAsistencia } from "./main.js";
 import { porcentajeDeAsistenciaEvento } from "./main.js";
 import { arrayMenorPorcentajeAsistencia } from "./main.js";
+import { eventoConMayorCapacidad } from "./main.js";
 
 //import { mayorPorcentajeAsistencia } from "./main.js";
 //import { menorPorcentajeAsistencia } from "./main.js";
@@ -63,6 +64,7 @@ function statsPast (eventos){
     //------Porcentaje de asistencia.----------------
     let eventosFiltradosPorCategorias = eventosPorCategorias(eventos,evento)      
     let asistencia = porcentajeDeAsistenciaPast(eventosFiltradosPorCategorias)
+    
     creadorDeColumnas +=`
     <tr>
           <td>${evento}</td>
@@ -79,13 +81,16 @@ function statsPrimeraTabla (eventos){
   let creadorDeColumnas = ``
   let nuevoArrayConPorcentaje = arrayPorcentajeAsistencia(eventos);
   let menorAsistencia = arrayMenorPorcentajeAsistencia(eventos)
+  //------Mayor Capacidad----------------
+  let eventoConMayorCapacidades = eventoConMayorCapacidad(eventos)
+  console.log(eventoConMayorCapacidades);
 
 
   creadorDeColumnas +=`
   <tr>
         <td>${nuevoArrayConPorcentaje.name} (${porcentajeDeAsistenciaEvento(nuevoArrayConPorcentaje).toFixed(2)}%)</td>
         <td>${menorAsistencia.name} (${porcentajeDeAsistenciaEvento(menorAsistencia).toFixed(2)}%)</td>
-        <td>%</td>
+        <td>${eventoConMayorCapacidades.name} (${eventoConMayorCapacidades.capacity})</td>
       </tr>      
   `
   trUpcomingCategory.innerHTML = creadorDeColumnas;
