@@ -3,6 +3,11 @@ import { filtroCategoria } from "./main.js";
 import { imprimirCheckbox } from "./main.js";
 import { filtroSearch } from "./main.js";
 //import { categoriaStats } from "./main.js";
+
+
+let rowsCards = document.getElementById("rowCards");
+let inputSearch = document.getElementById("inputSearch");
+let CheckboxIndex = document.getElementById("CheckboxIndex")
 let eventosFiltrados
 let Api = "https://mindhub-xj03.onrender.com/api/amazing"
 
@@ -12,17 +17,13 @@ fetch(Api)
   eventosFiltrados = filtroUpcoming(data.currentDate, data.events);
   imprimirCards(eventosFiltrados);
   imprimirCheckbox(eventosFiltrados);
-})
 
-let rowsCards = document.getElementById("rowCards");
-let inputSearch = document.getElementById("inputSearch");
-let CheckboxIndex = document.getElementById("CheckboxIndex")
 
 //--------------------------
 
 inputSearch.addEventListener('input',function() { //se imprimen todas las cards si se borra la busqueda
   if (!inputSearch.value) {
-    imprimirCards(eventosFiltrados);
+    filtro()
   }
 });
 
@@ -82,3 +83,4 @@ eventos.forEach(evento => {
 })
 rowsCards.innerHTML = stringHtmlss;
 }
+})

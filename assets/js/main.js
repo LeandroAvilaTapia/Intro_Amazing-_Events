@@ -52,7 +52,9 @@ export function filtroIndex(arrayEventos) {
   }
   
   export function filtroSearch(arrayDeEventos,texto) {
-    return arrayDeEventos.filter(evento => evento.name.toLowerCase().includes(texto.toLowerCase()))
+    if(texto.length != 0){
+    return arrayDeEventos.filter(evento => evento.name.toLowerCase().includes(texto.toLowerCase()))}
+    else {return arrayDeEventos}
   }
 
 
